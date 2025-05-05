@@ -16,20 +16,21 @@ namespace Szovegelemzo.Logic
 
         public void CreateTextData(string text)
         {
-            this.TextData.Text = text.ToLower();
-            this.TextData.Tokens = text.ToLower().Split(" ");
+            textDataRepo.CreateTextData(text);
         }
 
         public int GetWordCount()
         {
-            int count = TextData.Tokens.Length;
+            TextData text = textDataRepo.GetTextData();
+            int count = text.Tokens.Length;
             return count;
         }
 
         public int GetCharCount()
         {
+            TextData text = textDataRepo.GetTextData();
             int count = 0;
-            foreach (var word in TextData.Tokens)
+            foreach (var word in text.Tokens)
             {
                 count = count + word.Length;
             }
@@ -38,13 +39,15 @@ namespace Szovegelemzo.Logic
 
         public int GetSentenceCount()
         {
-            string[] sentences = TextData.Text.Split(".");
+            TextData text = textDataRepo.GetTextData();
+            string[] sentences = text.Text.Split(".");
             return sentences.Length;
         }
 
         public string MostCommonWord()
         {
-            List<string> tokens = TextData.Tokens.ToList();
+            TextData text = textDataRepo.GetTextData();
+            List<string> tokens = text.Tokens.ToList();
             tokens.RemoveAll(x => x == stopWords.Find(y => y == x));
             Dictionary<string, int> wordCount = new Dictionary<string, int>();
             foreach (var item in tokens)

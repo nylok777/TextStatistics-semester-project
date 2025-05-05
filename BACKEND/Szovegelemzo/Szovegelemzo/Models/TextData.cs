@@ -9,10 +9,10 @@
         //{
         //    Text = "";
         //}
-        //public TextData(string text)
-        //{
-        //    Text = text.ToLower();
-        //    Tokens = text.Split(" ");
-        //}
+        public TextData(string text)
+        {
+            Text = text.ToLower();
+            Tokens = text.Split(" ");
+        }
     }
 }

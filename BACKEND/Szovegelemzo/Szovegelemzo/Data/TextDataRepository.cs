@@ -4,11 +4,22 @@ namespace Szovegelemzo.Data
 {
     public class TextDataRepository
     {
-        List<TextData> textData;
+        List<TextData> textDataList;
 
         public TextDataRepository()
         {
-            textData = new List<TextData>();
+            textDataList = new List<TextData>();
+        }
+
+        public void CreateTextData(string text)
+        {
+            TextData textData = new TextData(text);
+            textDataList.Add(textData);
+        }
+
+        public TextData GetTextData()
+        {
+            return textDataList.First();
         }
     }
 }
