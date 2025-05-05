@@ -22,9 +22,9 @@ namespace Szovegelemzo.Controllers
         }
 
         [HttpGet]
-        public int GetWordCount()
+        public Statistics GetStatistics()
         {
-            return analyzer.GetWordCount();
+            return analyzer.GenerateStatistics();
         }
     }
 }

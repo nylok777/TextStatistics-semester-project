@@ -1,4 +1,6 @@
-﻿namespace Szovegelemzo.Logic
+﻿using Szovegelemzo.Models;
+
+namespace Szovegelemzo.Logic
 {
     public interface ITextAnalyzer
     {
@@ -8,5 +10,6 @@
         int GetWordCount();
         string MostCommonWord();
         float ReadabilityIndex();
+        Statistics GenerateStatistics();
     }
 }

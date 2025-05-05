@@ -70,5 +70,15 @@ namespace Szovegelemzo.Logic
             float index = 4.71f * (charCount / wordCount) + 0.5f * (wordCount / sentenceCount) - 21.43f;
             return index;
         }
+
+        public Statistics GenerateStatistics()
+        {
+            int wCount = GetWordCount();
+            int cCount = GetCharCount();
+            int sCount = GetSentenceCount();
+            string mostComWord = MostCommonWord();
+            float index = ReadabilityIndex();
+            return new Statistics(cCount, wCount, sCount, mostComWord, index);
+        }
     }
 }
