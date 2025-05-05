@@ -83,7 +83,14 @@ namespace Szovegelemzo.Logic
             int sCount = GetSentenceCount();
             string mostComWord = MostCommonWord();
             float index = ReadabilityIndex();
-            return new Statistics(cCount, wCount, sCount, mostComWord, index);
+            return new Statistics()
+            {
+                CharCount = cCount,
+                WordCount = wCount,
+                SentenceCount = sCount,
+                MostComWord = mostComWord,
+                ReadIndex = index
+            };
         }
     }
 }

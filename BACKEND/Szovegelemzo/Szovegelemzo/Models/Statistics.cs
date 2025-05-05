@@ -2,19 +2,11 @@
 {
     public class Statistics
     {
-        int charCount;
-        int wordCount;
-        int sentenceCount;
-        string mostComWord;
-        float readIndex;
-
-        public Statistics(int charCount, int wordCount, int sentenceCount, string mostComWord, float readIndex)
-        {
-            this.charCount = charCount;
-            this.wordCount = wordCount;
-            this.sentenceCount = sentenceCount;
-            this.mostComWord = mostComWord;
-            this.readIndex = readIndex;
-        }
+        public int CharCount { get; set; }
+        public int WordCount { get; set; }
+        public int SentenceCount { get; set; }
+        public string MostComWord { get; set; }
+        public float ReadIndex { get; set; }
+        
     }
 }

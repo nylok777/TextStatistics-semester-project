@@ -23,9 +23,9 @@ namespace Szovegelemzo.Controllers
         }
 
         [HttpGet]
-        public int GetStatistics()
+        public Statistics GetStatistics()
         {
-            return analyzer.GetCharCount();
+            return analyzer.GenerateStatistics();
         }
     }
 }

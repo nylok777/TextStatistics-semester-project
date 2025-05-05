@@ -14,7 +14,7 @@ namespace Szovegelemzo.Data
         public void CreateTextData(string text)
         {
             TextData textData = new TextData(text);
-            textDataList.Add(textData);
+            textDataList.Insert(0, textData);
         }
 
         public TextData GetTextData()
