@@ -6,11 +6,11 @@ namespace Szovegelemzo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TextController: ControllerBase
+    public class TextApiController: ControllerBase
     {
         ITextAnalyzer analyzer;
 
-        public TextController(ITextAnalyzer analyzer)
+        public TextApiController(ITextAnalyzer analyzer)
         {
             this.analyzer = analyzer;
         }
