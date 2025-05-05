@@ -61,8 +61,10 @@ namespace Szovegelemzo.Logic
                     wordCount.Add(item, 0);
                 }
             }
-            string word = wordCount.Max().Key;
-            return word;
+            int max = wordCount.Values.Max();
+            var enumerableWord = wordCount.Where(x => x.Value == max);
+            var word = enumerableWord.First();
+            return word.Key;
         }
 
         public float ReadabilityIndex()
