@@ -10,6 +10,7 @@ namespace Szovegelemzo.Logic
         public TextAnalyzer(TextData textData)
         {         
             stopWords = ["a", "i", "my", "the", "és", "de"];
+            this.textData = new TextData();
         }
 
         public void CreateTextData(string text)
