@@ -1,33 +1,35 @@
-﻿using Szovegelemzo.Models;
+﻿using Szovegelemzo.Data;
+using Szovegelemzo.Models;
 
 namespace Szovegelemzo.Logic
 {
     public class TextAnalyzer : ITextAnalyzer
     {
-        TextData? textData;
+        TextDataRepository textDataRepo;
         List<string> stopWords;
 
-        public TextAnalyzer(TextData textData)
-        {         
+        public TextAnalyzer(TextDataRepository textData)
+        {
+            this.textDataRepo = textData;
             stopWords = ["a", "i", "my", "the", "és", "de"];
-            this.textData = new TextData();
         }
 
         public void CreateTextData(string text)
         {
-            this.textData = new TextData(text);
+            this.TextData.Text = text.ToLower();
+            this.TextData.Tokens = text.ToLower().Split(" ");
         }
 
         public int GetWordCount()
         {
-            int count = textData.Tokens.Length;
+            int count = TextData.Tokens.Length;
             return count;
         }
 
         public int GetCharCount()
         {
             int count = 0;
-            foreach (var word in textData.Tokens)
+            foreach (var word in TextData.Tokens)
             {
                 count = count + word.Length;
             }
@@ -36,13 +38,13 @@ namespace Szovegelemzo.Logic
 
         public int GetSentenceCount()
         {
-            string[] sentences = textData.Text.Split(".");
+            string[] sentences = TextData.Text.Split(".");
             return sentences.Length;
         }
 
         public string MostCommonWord()
         {
-            List<string> tokens = textData.Tokens.ToList();
+            List<string> tokens = TextData.Tokens.ToList();
             tokens.RemoveAll(x => x == stopWords.Find(y => y == x));
             Dictionary<string, int> wordCount = new Dictionary<string, int>();
             foreach (var item in tokens)

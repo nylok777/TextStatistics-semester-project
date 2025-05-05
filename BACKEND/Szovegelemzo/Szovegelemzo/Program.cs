@@ -1,10 +1,12 @@
+using Szovegelemzo.Data;
 using Szovegelemzo.Logic;
 using Szovegelemzo.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<TextData>();
+builder.Services.AddCors();
+builder.Services.AddSingleton<TextDataRepository>();
 builder.Services.AddSingleton<ITextAnalyzer, TextAnalyzer>();
 var app = builder.Build();
 

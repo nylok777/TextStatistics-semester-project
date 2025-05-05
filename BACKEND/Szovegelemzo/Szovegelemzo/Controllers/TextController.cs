@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using Szovegelemzo.Logic;
 using Szovegelemzo.Models;
 
@@ -6,11 +7,11 @@ namespace Szovegelemzo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TextApiController: ControllerBase
+    public class TextController : ControllerBase
     {
         ITextAnalyzer analyzer;
 
-        public TextApiController(ITextAnalyzer analyzer)
+        public TextController(ITextAnalyzer analyzer)
         {
             this.analyzer = analyzer;
         }
@@ -22,9 +23,9 @@ namespace Szovegelemzo.Controllers
         }
 
         [HttpGet]
-        public Statistics GetStatistics()
+        public int GetStatistics()
         {
-            return analyzer.GenerateStatistics();
+            return analyzer.GetCharCount();
         }
     }
 }
