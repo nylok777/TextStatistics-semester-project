@@ -11,7 +11,7 @@ namespace Szovegelemzo.Logic
         public TextAnalyzer(TextDataRepository textData)
         {
             this.textDataRepo = textData;
-            stopWords = ["a", "i", "my", "the", "és", "de"];
+            stopWords = ["a", "i", "my", "the", "on", "in", "és", "de"];
         }
 
         public void CreateTextData(string text)
