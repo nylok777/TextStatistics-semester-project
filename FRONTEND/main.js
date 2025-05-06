@@ -1,4 +1,5 @@
-let statsArray = []
+let headsArray = ['Karakterek száma', 'Szavak száma', 'Mondatok száma', 'Leggyakoribb szó', 'ARI olvashatósági index']
+let headerCreated = false
 
 async function getStatistics() {
     const response = await fetch('http://localhost:5229/text')
@@ -6,6 +7,17 @@ async function getStatistics() {
     console.log(statistics)
 
     const statTable = document.querySelector('#stat-table')
+
+    const statTableHead = document.querySelector('#stat-table-head')
+    if (headerCreated == false) {
+        headsArray.forEach(x => {
+            let th = document.createElement('th')
+            th.innerHTML = x
+            statTableHead.appendChild(th)
+        })
+        headerCreated = true
+    }
+    
 
     const tr = document.createElement('tr')
     const charCount = document.createElement('td')

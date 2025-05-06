@@ -5,23 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Szövegstatisztika</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Szövegelemző</h1>
-        <textarea id="TxtInput" class="form-control" placeholder="Ide írd a szöveget"></textarea>
-        <button class="btn" onclick="sendData()">Elemzés</button>
+    <div class="container text-center">
+        <h1 class="mt-1">Szövegelemző</h1>
+        <textarea id="TxtInput" class="form-control my-3" placeholder="Ide írd a szöveget"></textarea>
+        <button class="btn btn-primary" onclick="sendData()">Elemzés</button>
         
         <table class="table" id="stat-table">
-            <tr>
-                <th>Karakterek száma</th>
-                <th>Szavak száma</th>
-                <th>Mondatok száma</th>
-                <th>Leggyakoribb szó</th>
-                <th>ARI olvashatósági index</th>
+            <tr id="stat-table-head">
+                
             </tr>
         </table>
+
+        <div class="center-card mx-auto">
+            <div class="card" style="width: 5cm;">
+                <img src="writing.jpg" alt="man-writing-fire">
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>
