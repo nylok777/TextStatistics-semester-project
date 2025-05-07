@@ -43,8 +43,8 @@ namespace Szovegelemzo.Logic
             string[] sentences = text.Text.Split(".");
             return sentences.Length;
         }
-
-        public string MostCommonWord()
+        
+        public Dictionary<string, int> MostCommonWords()
         {
             TextData text = textDataRepo.GetTextData();
             List<string> tokens = text.Tokens.ToList();
@@ -61,10 +61,26 @@ namespace Szovegelemzo.Logic
                     wordCount.Add(item, 0);
                 }
             }
-            int max = wordCount.Values.Max();
-            var enumerableWord = wordCount.Where(x => x.Value == max);
-            var word = enumerableWord.First();
-            return word.Key;
+
+            List<int> counts = wordCount.Values.ToList();
+            counts.Sort();
+            counts = counts.GetRange(0, 5);
+            Dictionary<string, int> topFiveWords = new Dictionary<string, int>();
+
+            foreach (var pair in wordCount)
+            {
+                if (counts.Contains(pair.Value))
+                {
+                    topFiveWords.Add(pair.Key, pair.Value);
+                }
+            }
+
+            return topFiveWords;
+
+            //int max = wordCount.Values.Max();
+            //var enumerableWord = wordCount.Where(x => x.Value == max);
+            //var word = enumerableWord.First();
+            //return word.Key;
         }
 
         public float ReadabilityIndex()
