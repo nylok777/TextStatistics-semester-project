@@ -5,14 +5,20 @@
         public string? Text { get; set; }
         public string[]? Tokens { get; set; }
 
-        //public TextData()
-        //{
-        //    Text = "";
-        //}
+        private string ProcessText(string text)
+        {
+            string processed = text.ToLower();
+            string[] chars = new string[] { ",", ";", ":" };
+            foreach (string item in chars)
+            {
+                processed = processed.Replace(item, string.Empty);
+            }
+            return processed;
+        }
         public TextData(string text)
         {
-            Text = text.ToLower();
-            Tokens = text.Split(" ");
+            Text = ProcessText(text);
+            Tokens = Text.Split(" ");
         }
     }
 }

@@ -57,22 +57,22 @@ namespace Szovegelemzo.Logic
             {
                 if (wordCount.ContainsKey(item))
                 {
-                    wordCount[item]++;
+                    wordCount[item] = wordCount[item] + 1;
                 }
                 else
                 {
-                    wordCount.Add(item, 0);
+                    wordCount.Add(item, 1);
                 }
             }
 
             List<int> counts = wordCount.Values.ToList();
-            counts.Sort();
-            counts = counts.GetRange(0, 5);
+            List<int> descending = counts.OrderDescending().ToList();
+            List<int> topFiveCounts = descending.GetRange(0, 5);
             Dictionary<string, int> topFiveWords = new Dictionary<string, int>();
 
             foreach (var pair in wordCount)
             {
-                if (counts.Contains(pair.Value))
+                if (topFiveCounts.Contains(pair.Value))
                 {
                     topFiveWords.Add(pair.Key, pair.Value);
                 }
