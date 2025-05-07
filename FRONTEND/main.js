@@ -29,7 +29,7 @@ async function getStatistics() {
     charCount.innerHTML = statistics.charCount
     wordCount.innerHTML = statistics.wordCount
     sentenceCount.innerHTML = statistics.sentenceCount
-    mostComWord.innerHTML = statistics.mostComWord
+    mostComWord.innerHTML = statistics.mostComWords[0]
     readIndex.innerHTML = statistics.readIndex
 
     charCount.classList.add('text-center')

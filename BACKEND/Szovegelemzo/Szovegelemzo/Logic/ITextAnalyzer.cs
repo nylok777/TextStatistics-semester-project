@@ -8,7 +8,7 @@ namespace Szovegelemzo.Logic
         int GetCharCount();
         int GetSentenceCount();
         int GetWordCount();
-        string MostCommonWord();
+        Dictionary<string, int> MostCommonWords();
         float ReadabilityIndex();
         Statistics GenerateStatistics();
     }

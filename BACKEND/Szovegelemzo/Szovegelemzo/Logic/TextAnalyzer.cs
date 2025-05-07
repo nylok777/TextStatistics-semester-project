@@ -48,8 +48,11 @@ namespace Szovegelemzo.Logic
         {
             TextData text = textDataRepo.GetTextData();
             List<string> tokens = text.Tokens.ToList();
+
             tokens.RemoveAll(x => x == stopWords.Find(y => y == x));
+
             Dictionary<string, int> wordCount = new Dictionary<string, int>();
+
             foreach (var item in tokens)
             {
                 if (wordCount.ContainsKey(item))
@@ -96,17 +99,21 @@ namespace Szovegelemzo.Logic
 
         public Statistics GenerateStatistics()
         {
+            Dictionary<string, int> wordCount = MostCommonWords();
+
             int wCount = GetWordCount();
             int cCount = GetCharCount();
             int sCount = GetSentenceCount();
-            string mostComWord = MostCommonWord();
+            string[] mostComWords = wordCount.Keys.ToArray();
+            int[] mostComWordCounts = wordCount.Values.ToArray();
             float index = ReadabilityIndex();
             return new Statistics()
             {
                 CharCount = cCount,
                 WordCount = wCount,
                 SentenceCount = sCount,
-                MostComWord = mostComWord,
+                MostComWords = mostComWords,
+                MostComWordCounts = mostComWordCounts,
                 ReadIndex = index
             };
         }
