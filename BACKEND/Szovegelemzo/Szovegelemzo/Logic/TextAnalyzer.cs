@@ -41,7 +41,21 @@ namespace Szovegelemzo.Logic
         {
             TextData text = textDataRepo.GetTextData();
             string[] sentences = text.Text.Split(".");
-            return sentences.Length;
+            int numOfSentences = sentences.Length;
+
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                if (sentences[i].EndsWith(" pl") || sentences[i].EndsWith(" kb"))
+                {
+                    numOfSentences--;
+                }
+                else if (sentences[i].Length < 2)
+                {
+                    numOfSentences--;
+                }
+            }
+
+            return numOfSentences;
         }
         
         public Dictionary<string, int> MostCommonWords()
@@ -70,12 +84,11 @@ namespace Szovegelemzo.Logic
             List<int> topFiveCounts = descending.GetRange(0, 5);
             Dictionary<string, int> topFiveWords = new Dictionary<string, int>();
 
-            foreach (var pair in wordCount)
+            foreach (var count in topFiveCounts)
             {
-                if (topFiveCounts.Contains(pair.Value))
-                {
-                    topFiveWords.Add(pair.Key, pair.Value);
-                }
+                KeyValuePair<string, int> pair = wordCount.FirstOrDefault(x => 
+                x.Value == count && !topFiveWords.ContainsKey(x.Key));                
+                topFiveWords.Add(pair.Key, pair.Value);
             }
 
             return topFiveWords;

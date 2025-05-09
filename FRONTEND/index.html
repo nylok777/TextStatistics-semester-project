@@ -9,17 +9,18 @@
     <title>Szövegstatisztika</title>
 </head>
 <body>
+    <nav class="navbar navbar-nav nav-bg-color">nav</nav>
     <div class="container text-center">
-        <h1 class="mt-1">Szövegelemző</h1>
+        <h1 class="mt-1 main-title">Szövegelemző</h1>
         <textarea id="TxtInput" class="form-control my-3" placeholder="Ide írd a szöveget"></textarea>
-        <button class="btn btn-primary" onclick="sendData()">Elemzés</button>
+        <button class="btn button-color" onclick="sendData()">Elemzés</button>
         
         <table class="table" id="stat-table">
             <tr id="stat-table-head">
                 
             </tr>
         </table>
-
+                
         <div class="center-card mx-auto">
             <div class="card" style="width: 5cm;">
                 <img src="writing.jpg" alt="man-writing-fire">

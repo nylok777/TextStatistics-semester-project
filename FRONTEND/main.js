@@ -1,6 +1,10 @@
 let headsArray = ['Karakterek száma', 'Szavak száma', 'Mondatok száma', 'Leggyakoribb szó', 'ARI olvashatósági index']
 let headerCreated = false
 
+window.onload = function() {
+    document.getElementById('TxtInput').value = ''
+}
+
 async function getStatistics() {
     const response = await fetch('http://localhost:5229/text')
     const statistics = await response.json()
@@ -30,7 +34,7 @@ async function getStatistics() {
     wordCount.innerHTML = statistics.wordCount
     sentenceCount.innerHTML = statistics.sentenceCount
     mostComWord.innerHTML = statistics.mostComWords[0]
-    readIndex.innerHTML = statistics.readIndex
+    readIndex.innerHTML = Math.round(statistics.readIndex)
 
     charCount.classList.add('text-center')
     wordCount.classList.add('text-center')
@@ -45,6 +49,8 @@ async function getStatistics() {
     tr.appendChild(readIndex)
     
     statTable.appendChild(tr)
+
+    const mostComWordsCounts = statistics.mostComWordCounts
 }
 
 function sendData() {
@@ -60,4 +66,5 @@ function sendData() {
             getStatistics()
         }
     }).catch(error => console.log(error))
+    document.getElementById('TxtInput').value = ''
 }
