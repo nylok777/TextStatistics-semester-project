@@ -3,21 +3,21 @@ textarea {
     resize: vertical;
   }
 
-  body {
-    background-color: #E6E6FA
-  }
+body {
+  background-color: #E6E6FA
+}
 
-  .nav-bg-color {
-    background-color: #F8F8FF;
-  }
+.nav-bg-color {
+  background-color: #F8F8FF;
+}
 
-  .main-title {
-    color: #708090;
-  }
+.main-title {
+  color: #708090;
+}
 
-  .button-color {
-    background-color: #FFF0F5;
-  }
+.button-color {
+  background-color: #FFF0F5;
+}
 
 .button-color:hover {
   background-color: rebeccapurple;
@@ -28,4 +28,23 @@ textarea {
   width: 1cm;
   background-color: aqua;
   margin-right: 1cm;
+}
+
+#chart-with-line {
+  margin-top: 5cm;
+  transform: rotateX(180deg);
+}
+
+.bar-words {
+  transform: rotateX(180deg);
+}
+
+.words {
+  margin-right: 0.5cm;
+}
+
+.chart-line {
+  width: 10cm;
+  height: 2px;
+  background-color: black;
 }

@@ -48,20 +48,29 @@ async function getStatistics() {
     statBody.appendChild(tr)
 
     const topWordsCounts = statistics.mostComWordCounts
+    const topWords = statistics.mostComWords
 
-    drawWordCounts(topWordsCounts)
+    drawWordCounts(topWordsCounts, topWords)
 }
 
-function drawWordCounts(topWordsCounts) {
+function drawWordCounts(topWordsCounts, topWords) {
     const chart = document.querySelector('.barchart')
 
     for (let i = 0; i < topWordsCounts.length; i++) {
         const element = topWordsCounts[i];
+        const word = topWords[i]
         let div = document.createElement('div')
-        div.style.height = `${element}cm`
+        div.style.height = `${element*1.5}cm`
         div.classList.add('bar-divs')
         div.classList.add('col-md-auto')
         chart.appendChild(div)
+
+        let p = document.createElement('p')
+        p.innerHTML = word
+        p.classList.add('words')
+        p.classList.add('col-md-auto')
+
+        document.querySelector('.bar-words').appendChild(p)
     }
 }
 
