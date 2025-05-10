@@ -73,7 +73,7 @@ function addText(input) {
     const expName = input.value
     fetch(`media/${expName}.txt`).then(x => x.text()).then(
         text => {
-            document.getElementById('TxtInput').value = text
+            document.getElementById('TxtInput').value = text            
         }
     )
 }
