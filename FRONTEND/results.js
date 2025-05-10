@@ -14,6 +14,7 @@ async function getStatistics() {
         headsArray.forEach(x => {
             let th = document.createElement('th')
             th.innerHTML = x
+            th.classList.add('text-center')
             headRow.appendChild(th)
         })
         headerCreated = true
