@@ -1,7 +1,6 @@
 let headsArray = ['Karakterek száma', 'Szavak száma', 'Mondatok száma', 'Leggyakoribb szó', 'ARI olvashatósági index']
 let headerCreated = false
 
-
 async function getStatistics() {
     const response = await fetch('http://localhost:5229/text')
     const statistics = await response.json()
@@ -48,7 +47,22 @@ async function getStatistics() {
     
     statBody.appendChild(tr)
 
-    const mostComWordsCounts = statistics.mostComWordCounts    
+    const topWordsCounts = statistics.mostComWordCounts
+
+    drawWordCounts(topWordsCounts)
+}
+
+function drawWordCounts(topWordsCounts) {
+    const chart = document.querySelector('.barchart')
+
+    for (let i = 0; i < topWordsCounts.length; i++) {
+        const element = topWordsCounts[i];
+        let div = document.createElement('div')
+        div.style.height = `${element}cm`
+        div.classList.add('bar-divs')
+        div.classList.add('col-md-auto')
+        chart.appendChild(div)
+    }
 }
 
 window.onload(getStatistics())

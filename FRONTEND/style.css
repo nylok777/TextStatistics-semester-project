@@ -22,4 +22,10 @@ textarea {
 .button-color:hover {
   background-color: rebeccapurple;
   color: wheat;
-}  
+}
+
+.bar-divs {
+  width: 1cm;
+  background-color: aqua;
+  margin-right: 1cm;
+}
