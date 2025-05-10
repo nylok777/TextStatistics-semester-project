@@ -10,10 +10,26 @@
 </head>
 <body>
     <nav class="navbar navbar-nav nav-bg-color">nav</nav>
-    <div class="container text-center">
+    <div class="container">
         <h1 class="mt-1 main-title">Szövegelemző</h1>
-        <textarea id="TxtInput" class="form-control my-3" placeholder="Ide írd a szöveget"></textarea>
-        <button class="btn button-color" onclick="sendData()">Elemzés</button>
+        <textarea id="TxtInput" class="form-control my-3" placeholder="Ide írd a szöveget">
+
+        </textarea>
+
+        <div class="dropdown">
+            <button class="btn button-color dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Példa
+            </button>
+            <ul class="dropdown-menu">
+                <li><button class="dropdown-item" onclick="addText(this)" value="neuromancer">Neuromancer</button></li>
+                <li><button class="dropdown-item">Lovecraft</button></li>
+            </ul>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button class="btn button-color" onclick="sendData()">Elemzés</button>
+        </div>
+        
         
         <table class="table" id="stat-table">
             <tr id="stat-table-head">
@@ -23,7 +39,7 @@
                 
         <div class="center-card mx-auto">
             <div class="card" style="width: 5cm;">
-                <img src="writing.jpg" alt="man-writing-fire">
+                <img src="media/writing.jpg" alt="man-writing-fire">
             </div>
         </div>
     </div>

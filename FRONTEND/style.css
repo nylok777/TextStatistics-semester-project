@@ -4,8 +4,7 @@
 
 textarea {
     height: 5cm;
-    overflow: hidden;
-    resize: both;
+    resize: vertical;
   }
 
   body {
@@ -23,3 +22,5 @@ textarea {
   .button-color {
     background-color: #FFF0F5;
   }
+
+  
