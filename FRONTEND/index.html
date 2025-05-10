@@ -9,9 +9,9 @@
     <title>Szövegstatisztika</title>
 </head>
 <body>
-    <nav class="navbar navbar-nav nav-bg-color">
-        <a href="index.html">Home</a>
-        <a href="results.html">Results</a>
+    <nav class="navbar navbar-expand-lg nav-bg-color">
+        <a class="nav-link mx-5" href="index.html">Home</a>
+        <a class="nav-link" href="results.html">Results</a>
     </nav>
     <div class="container">
         <h1 class="mt-1 main-title">Text analyser</h1>
@@ -19,21 +19,34 @@
 
         </textarea>
 
-        <div class="dropdown">
-            <button class="btn button-color dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Példa
-            </button>
-            <ul class="dropdown-menu">
-                <li><button class="dropdown-item" onclick="addText(this)" value="neuromancer">Neuromancer</button></li>
-                <li><button class="dropdown-item" onclick="addText(this)" value="lovecraft">Lovecraft</button></li>
-            </ul>
-        </div>
+        <div class="row">
+            <div class="col">
+                <div class="dropdown">
+                    <button class="btn button-color dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Példa
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><button class="dropdown-item" onclick="addText(this)" value="neuromancer">Neuromancer</button></li>
+                        <li><button class="dropdown-item" onclick="addText(this)" value="lovecraft">Lovecraft</button></li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="d-flex justify-content-center">
-            <button class="btn button-color" onclick="sendData()">Elemzés</button>
+            <div class="col">
+                <button class="btn button-color" onclick="deleteText()">Delete text</button>
+            </div>
+
+            <div class="col">
+                <button class="btn button-color" onclick="sendData()">Analyse</button>
+            </div>
         </div>
+        <table class="table" id="stat-table">
+            <tr id="stat-table-head">
                 
-        <div class="center-card mx-auto">
+            </tr>
+        </table>
+                
+        <div class="d-flex justify-content-center">
             <div class="card" style="width: 5cm;">
                 <img src="media/writing.jpg" alt="man-writing-fire">
             </div>

@@ -23,4 +23,6 @@ textarea {
     background-color: #FFF0F5;
   }
 
-  
+.button-color:hover {
+  background-color: rebeccapurple;
+}  

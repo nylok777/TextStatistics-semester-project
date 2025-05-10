@@ -77,3 +77,7 @@ function addText(input) {
         }
     )
 }
+
+function deleteText() {
+    document.getElementById('TxtInput').value = ''
+}
