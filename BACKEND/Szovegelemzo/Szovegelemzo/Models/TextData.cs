@@ -8,7 +8,7 @@
         private string ProcessText(string text)
         {
             string processed = text.ToLower();
-            string[] chars = new string[] { ",", ";", ":" };
+            string[] chars = new string[] {",", ":", ";", @"""", "'"};
             foreach (string item in chars)
             {
                 processed = processed.Replace(item, string.Empty);

@@ -7,14 +7,14 @@ async function getStatistics() {
     const statistics = await response.json()
     console.log(statistics)
     
-    const statTable = document.querySelector('#stat-table')
+    const statBody = document.querySelector('#stat-body')
 
-    const statTableHead = document.querySelector('#stat-table-head')
+    const headRow = document.querySelector('#stat-head-row')
     if (headerCreated == false) {
         headsArray.forEach(x => {
             let th = document.createElement('th')
             th.innerHTML = x
-            statTableHead.appendChild(th)
+            headRow.appendChild(th)
         })
         headerCreated = true
     }
@@ -45,7 +45,7 @@ async function getStatistics() {
     tr.appendChild(mostComWord)
     tr.appendChild(readIndex)
     
-    statTable.appendChild(tr)
+    statBody.appendChild(tr)
 
     const mostComWordsCounts = statistics.mostComWordCounts    
 }
