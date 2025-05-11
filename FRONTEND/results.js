@@ -31,7 +31,7 @@ async function getStatistics() {
     wordCount.innerHTML = statistics.wordCount
     sentenceCount.innerHTML = statistics.sentenceCount
     mostComWord.innerHTML = statistics.mostComWords[0]
-    readIndex.innerHTML = Math.round(statistics.readIndex)
+    readIndex.innerHTML = Math.ceil(statistics.readIndex)
 
     charCount.classList.add('text-center')
     wordCount.classList.add('text-center')
@@ -59,22 +59,33 @@ function drawWordCounts(topWordsCounts, topWords) {
     for (let i = 0; i < topWordsCounts.length; i++) {
         const element = topWordsCounts[i]
         const word = topWords[i]
+        const mainDiv = document.getElementById('diagram')
+
+        let longestWord = 0
+
+        if (topWords[longestWord].length < word.length) {
+            longestWord = i
+        }
 
         let div = document.createElement('div')
-        div.style.height = `${element*1.5}cm`
-        div.style.backgroundColor = 'aqua'
-        div.classList.add('bar-divs', 'col-lg-auto')
+        if (element > 19) {
+            div.style.height = `${element*5}px`
+        }
+        else {
+            div.style.height = `${(element*1.5)}cm`
+        }
+        
+        div.style.backgroundColor = '#CBC3E3'
+        div.classList.add('bar-divs', 'col-md-auto')
+        div.innerHTML = `${element}`
         chart.appendChild(div)
 
         let pDiv = document.createElement('div')
         pDiv.innerHTML = word
-        pDiv.classList.add('bar-divs-words', 'col-lg-auto')
+        pDiv.classList.add('bar-divs-words', 'col-md-auto')
         document.querySelector('.bar-words-row').appendChild(pDiv)
 
-        let numDiv = document.createElement('div')
-        numDiv.innerHTML = element
-        numDiv.classList.add('bar-divs-words', 'col-lg-auto')
-        document.getElementById('numbers-on-bar').appendChild(numDiv)
+        mainDiv.style.paddingBottom = `${topWords[longestWord].length*20}px`
     }
 }
 

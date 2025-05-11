@@ -13,24 +13,42 @@
         <a class="nav-link" href="results.html"><h3>Results</h3></a>
     </nav>
 
-    <div class="container text-center">
-        <h1 class="my-3 main-title">Results</h1>
-        <table class="table table-primary" id="stat-table">
-            <thead id="stat-head">
-                <tr id="stat-head-row">
-                </tr>
-            </thead>
-            <tbody id="stat-body">
-            </tbody>
-        </table>
-
-        <div class="container" id="chart-with-line">
-            <div class="row bar-words-row"></div>
-            <div class="row chart-line"></div>
-            <div class="row" id="barchart"></div>
-            <div class="row bar-words-row" id="numbers-on-bar"></div>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col">
+                <h1 class="main-title">Results</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <table class="table table-primary" id="stat-table">
+                    <thead id="stat-head">
+                        <tr id="stat-head-row"></tr>
+                    </thead>
+                    <tbody id="stat-body"></tbody>
+                </table>
+            </div>
+        </div>      
+        
+        <div class="row my-3" id="diagram">
+            <div class="col">
+                <div id="chart-with-line">
+                    <div class="row bar-words-row"></div>
+                    <div class="row chart-line"></div>
+                    <div class="row" id="barchart"></div>
+                    <h3 class="row bar-header mt-5">Az 5 leggyakoribb szó és frekvenciájuk</h3>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p>The automated readability index (ARI) is a readability test for English texts, designed to gauge the understandability of a text. Like the Flesch–Kincaid grade level, Gunning fog index, SMOG index, Fry readability formula, and Coleman–Liau index, it produces an approximate representation of the US grade level needed to comprehend the text.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
 
     <script src="results.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>

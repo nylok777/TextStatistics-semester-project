@@ -40,7 +40,7 @@ namespace Szovegelemzo.Logic
         public int GetSentenceCount()
         {
             TextData text = textDataRepo.GetTextData();
-            string[] sentences = text.Text.Split(".");
+            string[] sentences = text.Text.Split(new char[] {'.', '!', '?'});
             int numOfSentences = sentences.Length;
 
             for (int i = 0; i < sentences.Length; i++)
@@ -49,7 +49,7 @@ namespace Szovegelemzo.Logic
                 {
                     numOfSentences--;
                 }
-                else if (sentences[i].Length < 2)
+                else if (sentences[i].Length < 3)
                 {
                     numOfSentences--;
                 }
@@ -119,7 +119,7 @@ namespace Szovegelemzo.Logic
             float index = 0;
             try
             {
-                index = 4.71f * (charCount / wordCount) + 0.5f * (wordCount / sentenceCount) - 21.43f;
+                index = (4.71f * (charCount / wordCount)) + (0.5f * (wordCount / sentenceCount)) - 21.43f;
             } catch(DivideByZeroException)
             {
                 index = 0;

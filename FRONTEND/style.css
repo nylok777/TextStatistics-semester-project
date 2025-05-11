@@ -4,7 +4,8 @@ textarea {
   }
 
 body {
-  background-color: #E6E6FA
+  background-color: #E6E6FA;
+  font-size: large;
 }
 
 .nav-bg-color {
@@ -27,26 +28,34 @@ body {
 .bar-divs {
   margin-right: 1cm;
   width: 1cm;
+  transform: rotateX(180deg);
 }
 
 .bar-divs-words {
   width: 1cm;
   margin-top: 5px;
   margin-right: 1cm;
-  writing-mode: vertical-lr;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg) rotate(70deg);
 }
 
 #chart-with-line {
-  background-color: #FFF0F5;
+  transform: rotateX(180deg);
+}
+
+#diagram {
+  background-color: #f4f4ff;
   width: fit-content;
-  padding: 1cm;
-  margin-top: 5cm;
-  transform: rotate(90deg) rotateX(180deg);
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .chart-line {
   height: 2px;
   width: 10cm;
   background-color: black;
+}
+
+.bar-header {
+  transform: rotateX(180deg);
 }
