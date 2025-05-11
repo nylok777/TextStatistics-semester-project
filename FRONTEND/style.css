@@ -25,26 +25,28 @@ body {
 }
 
 .bar-divs {
-  width: 1cm;
-  background-color: aqua;
   margin-right: 1cm;
+  width: 1cm;
+}
+
+.bar-divs-words {
+  width: 1cm;
+  margin-top: 5px;
+  margin-right: 1cm;
+  writing-mode: vertical-lr;
+  transform: rotateY(180deg);
 }
 
 #chart-with-line {
+  background-color: #FFF0F5;
+  width: fit-content;
+  padding: 1cm;
   margin-top: 5cm;
-  transform: rotateX(180deg);
-}
-
-.bar-words {
-  transform: rotateX(180deg);
-}
-
-.words {
-  margin-right: 0.5cm;
+  transform: rotate(90deg) rotateX(180deg);
 }
 
 .chart-line {
-  width: 10cm;
   height: 2px;
+  width: 10cm;
   background-color: black;
 }

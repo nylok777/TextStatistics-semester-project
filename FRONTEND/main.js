@@ -1,6 +1,6 @@
-// window.onload = function() {
-//     document.getElementById('TxtInput').value = ''
-// }
+window.onload = function() {
+    document.getElementById('TxtInput').value = ''
+}
 
 function sendData() {
     let txt = document.querySelector('#TxtInput').value

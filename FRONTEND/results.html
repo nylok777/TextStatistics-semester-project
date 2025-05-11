@@ -12,8 +12,9 @@
         <a class="nav-link mx-5" href="index.html"><h3>Home</h3></a>
         <a class="nav-link" href="results.html"><h3>Results</h3></a>
     </nav>
-    <div class="container">
-        <h1 class="mt-1 main-title">Results</h1>
+
+    <div class="container text-center">
+        <h1 class="my-3 main-title">Results</h1>
         <table class="table table-primary" id="stat-table">
             <thead id="stat-head">
                 <tr id="stat-head-row">
@@ -22,10 +23,12 @@
             <tbody id="stat-body">
             </tbody>
         </table>
-        <div id="chart-with-line">
-            <div class="row bar-words"></div>
+
+        <div class="container" id="chart-with-line">
+            <div class="row bar-words-row"></div>
             <div class="row chart-line"></div>
-            <div class="row barchart"></div>
+            <div class="row" id="barchart"></div>
+            <div class="row bar-words-row" id="numbers-on-bar"></div>
         </div>
     </div>
 

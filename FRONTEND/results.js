@@ -54,23 +54,27 @@ async function getStatistics() {
 }
 
 function drawWordCounts(topWordsCounts, topWords) {
-    const chart = document.querySelector('.barchart')
-
+    const chart = document.querySelector('#barchart')
+    
     for (let i = 0; i < topWordsCounts.length; i++) {
-        const element = topWordsCounts[i];
+        const element = topWordsCounts[i]
         const word = topWords[i]
+
         let div = document.createElement('div')
         div.style.height = `${element*1.5}cm`
-        div.classList.add('bar-divs')
-        div.classList.add('col-md-auto')
+        div.style.backgroundColor = 'aqua'
+        div.classList.add('bar-divs', 'col-lg-auto')
         chart.appendChild(div)
 
-        let p = document.createElement('p')
-        p.innerHTML = word
-        p.classList.add('words')
-        p.classList.add('col-md-auto')
+        let pDiv = document.createElement('div')
+        pDiv.innerHTML = word
+        pDiv.classList.add('bar-divs-words', 'col-lg-auto')
+        document.querySelector('.bar-words-row').appendChild(pDiv)
 
-        document.querySelector('.bar-words').appendChild(p)
+        let numDiv = document.createElement('div')
+        numDiv.innerHTML = element
+        numDiv.classList.add('bar-divs-words', 'col-lg-auto')
+        document.getElementById('numbers-on-bar').appendChild(numDiv)
     }
 }
 

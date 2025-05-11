@@ -11,7 +11,7 @@ namespace Szovegelemzo.Logic
         public TextAnalyzer(TextDataRepository textData)
         {
             this.textDataRepo = textData;
-            stopWords = new List<string>{"i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"};
+            stopWords = new List<string>{"hed", "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"};
         }
 
         public void CreateTextData(string text)
@@ -45,7 +45,7 @@ namespace Szovegelemzo.Logic
 
             for (int i = 0; i < sentences.Length; i++)
             {
-                if (sentences[i].EndsWith(" pl") || sentences[i].EndsWith(" kb"))
+                if (sentences[i].EndsWith(" eg"))
                 {
                     numOfSentences--;
                 }
@@ -83,7 +83,15 @@ namespace Szovegelemzo.Logic
 
             List<int> counts = wordCount.Values.ToList();
             List<int> descending = counts.OrderDescending().ToList();
-            List<int> topFiveCounts = descending.GetRange(0, 5);
+            List<int> topFiveCounts = new List<int>();
+            try
+            {
+                topFiveCounts = descending.GetRange(0, 5);
+            } catch(Exception)
+            {
+                topFiveCounts = descending.GetRange(0, descending.Count);
+            }
+            
             Dictionary<string, int> topFiveWords = new Dictionary<string, int>();
 
             foreach (var count in topFiveCounts)
@@ -108,7 +116,14 @@ namespace Szovegelemzo.Logic
             int sentenceCount = GetSentenceCount();
             int wordCount = GetWordCount();
 
-            float index = 4.71f * (charCount / wordCount) + 0.5f * (wordCount / sentenceCount) - 21.43f;
+            float index = 0;
+            try
+            {
+                index = 4.71f * (charCount / wordCount) + 0.5f * (wordCount / sentenceCount) - 21.43f;
+            } catch(DivideByZeroException)
+            {
+                index = 0;
+            }
             return index;
         }
 
